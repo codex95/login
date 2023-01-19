@@ -22,6 +22,7 @@ int main()
     cin >> c;
     cout << endl;
     
+    //list of options for user to choose from
     switch(c)
     {
         case 1:
@@ -48,7 +49,7 @@ int main()
     }
     
 }
-
+    //login function
     void login()
     {
         int count;
@@ -62,6 +63,7 @@ int main()
 
         ifstream input("records.txt");
 
+        //check if id and password exist in records.txt
         while(input>>id>>pass)
         {
             if(id==userId && pass==password)
@@ -84,6 +86,7 @@ int main()
         }
     }
 
+    //registration function
     void registration()
     {
         string ruserId, rpassword, rid, rpass;
@@ -93,6 +96,7 @@ int main()
         cout << "\t\t\t Enter password: ";
         cin >> rpassword;
 
+        //record id and password in text file once registered
         ofstream f1("records.txt", ios::app);
         f1 << ruserId << ' ' << rpassword << endl;
         system("cls");
@@ -101,6 +105,7 @@ int main()
 
     }
 
+    //forgot password function
     void forgot()
     {
         int option;
@@ -113,6 +118,7 @@ int main()
 
         switch (option)
         {
+            //search password based on id in records.txt file
            case 1:
            {
                 int count = 0;
@@ -143,6 +149,8 @@ int main()
                 break;
            }
 
+
+            //return back to main menu
            case 2:
            {
                 main();
